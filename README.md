@@ -24,7 +24,7 @@ import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 %matplotlib inline
-
+`
 
 
 train  = pd.read_csv('train_E6oV3lV.csv')
@@ -61,5 +61,5 @@ def remove_pattern(input_txt, pattern):
         input_txt = re.sub(i, '', input_txt)
         
     return input_txt`
-    
+ `   
 Now let’s create a new column tidy_tweet, it will contain the cleaned and processed tweets. Note that we have passed “@[\w]*” as the pattern to the remove_pattern function. It is actually a regular expression which will pick any word starting with ‘@’.
