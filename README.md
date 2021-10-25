@@ -11,6 +11,7 @@ The preprocessing of the text data is an essential step as it makes the raw text
 In one of the later stages, we will be extracting numeric features from our Twitter text data. This feature space is created using all the unique words present in the entire data. So, if we preprocess our data well, then we would be able to get a better quality feature space.
 
 Let’s first read our data and load the necessary libraries. You can download the datasets from https://datahack.analyticsvidhya.com/contest/practice-problem-twitter-sentiment-analysis/
+
 `
 import re
 import pandas as pd 
@@ -23,9 +24,9 @@ import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 %matplotlib inline
-`
 
-`
+
+
 train  = pd.read_csv('train_E6oV3lV.csv')
 test = pd.read_csv('test_tweets_anuFYb8.csv')
 `
@@ -59,8 +60,6 @@ def remove_pattern(input_txt, pattern):
     for i in r:
         input_txt = re.sub(i, '', input_txt)
         
-    return input_txt
-    
-    `
+    return input_txt`
     
 Now let’s create a new column tidy_tweet, it will contain the cleaned and processed tweets. Note that we have passed “@[\w]*” as the pattern to the remove_pattern function. It is actually a regular expression which will pick any word starting with ‘@’.
