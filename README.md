@@ -11,8 +11,8 @@ The preprocessing of the text data is an essential step as it makes the raw text
 In one of the later stages, we will be extracting numeric features from our Twitter text data. This feature space is created using all the unique words present in the entire data. So, if we preprocess our data well, then we would be able to get a better quality feature space.
 
 Let’s first read our data and load the necessary libraries. You can download the datasets from https://datahack.analyticsvidhya.com/contest/practice-problem-twitter-sentiment-analysis/
-
-`import re
+`
+import re
 import pandas as pd 
 import numpy as np 
 import matplotlib.pyplot as plt 
@@ -22,10 +22,13 @@ import nltk
 import warnings 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-%matplotlib inline`
+%matplotlib inline
+`
 
-`train  = pd.read_csv('train_E6oV3lV.csv')
-test = pd.read_csv('test_tweets_anuFYb8.csv')`
+`
+train  = pd.read_csv('train_E6oV3lV.csv')
+test = pd.read_csv('test_tweets_anuFYb8.csv')
+`
 
 Let’s check the first few rows of the train dataset.
 
@@ -50,11 +53,14 @@ For our convenience, let’s first combine train and test set. This saves the tr
 
 Given below is a user-defined function to remove unwanted text patterns from the tweets. It takes two arguments, one is the original string of text and the other is the pattern of text that we want to remove from the string. The function returns the same input string but without the given pattern. We will use this function to remove the pattern ‘@user’ from all the tweets in our data.
 
-`def remove_pattern(input_txt, pattern):
+`
+def remove_pattern(input_txt, pattern):
     r = re.findall(pattern, input_txt)
     for i in r:
         input_txt = re.sub(i, '', input_txt)
         
-    return input_txt`
+    return input_txt
+    
+    `
     
 Now let’s create a new column tidy_tweet, it will contain the cleaned and processed tweets. Note that we have passed “@[\w]*” as the pattern to the remove_pattern function. It is actually a regular expression which will pick any word starting with ‘@’.
